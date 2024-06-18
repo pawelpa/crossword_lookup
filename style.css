@@ -37,6 +37,11 @@ input[type=text] {
   cursor: pointer;
 }
 
+.button.small {
+  margin-left: 10px;
+  font-size: 1.4rem;
+}
+
 input[type=submit] {
   font-size: 2rem;
   border: none;

@@ -6,7 +6,7 @@ const results = document.querySelector("#results")
 const length = document.querySelector('#length')
 const inputs = document.querySelector('#inputs')
 
-const maxLength = 15
+const maxLength = 16
 
 function focusOnFirstElement() {
   const firstInput = document.querySelector('input[name="1"]')
