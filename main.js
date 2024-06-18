@@ -116,12 +116,18 @@ const showResults = (data) => {
 
   results.innerHTML = ''
 
-  data.forEach(element => {
+  if(data.length === 0) {
     const p = document.createElement('p')
-    
-    p.innerText = element.word
+    p.innerText = 'No words found'
     results.appendChild(p)
-  })
+  } else {
+    data.forEach(element => {
+      const p = document.createElement('p')
+      p.innerText = element.word
+      results.appendChild(p)
+    })
+  }
+
 
 } 
 
