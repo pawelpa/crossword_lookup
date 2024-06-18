@@ -52,6 +52,20 @@ function bindEventToInput() {
         e.target.previousElementSibling.focus()
     })
   })
+
+  text_inputs.forEach( input => {
+    input.addEventListener('keyup', e => {
+      const event = window.event ? window.event : e
+      if( e.target.nextElementSibling && 
+          event.keyCode != 39 &&
+          event.keyCode != 37 &&
+          event.keyCode != 8 &&
+          event.keyCode != 46
+          )
+        e.target.nextElementSibling.focus()
+    })
+    
+  })
 }
 
 length.addEventListener('change', e => {
@@ -86,7 +100,7 @@ lookupForm.addEventListener('submit', async  e => {
 
   headers.append('Content-Type', 'application/json')
 
-  const response = await fetch('//localhost:3000/api/crossword/',
+  const response = await fetch('http://crossword-lookup.eu-4.evennode.com/api/crossword',
     {
       headers,
       method: 'POST',
