@@ -100,7 +100,7 @@ lookupForm.addEventListener('submit', async  e => {
 
   headers.append('Content-Type', 'application/json')
 
-  const response = await fetch('http://crossword-lookup.eu-4.evennode.com/api/crossword',
+  const response = await fetch('https://crossword-lookup-server.vercel.app/api/crossword',
     {
       headers,
       method: 'POST',
