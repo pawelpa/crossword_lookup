@@ -60,7 +60,10 @@ function bindEventToInput() {
           event.keyCode != 39 &&
           event.keyCode != 37 &&
           event.keyCode != 8 &&
-          event.keyCode != 46
+          event.keyCode != 46 &&
+          event.code != 'Backspace' &&
+          event.code != 'Delete'
+
           )
         e.target.nextElementSibling.focus()
     })
