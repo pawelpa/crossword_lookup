@@ -47,6 +47,7 @@ function bindEventToInput() {
   text_inputs.forEach(input => {
     input.addEventListener('keydown', e => {
       const event = window.event ? window.event : e
+      debug.innerText = event.code
       if(event.keyCode == 39 && e.target.nextElementSibling)
         e.target.nextElementSibling.focus()
       if(event.keyCode == 37 && e.target.previousElementSibling)
