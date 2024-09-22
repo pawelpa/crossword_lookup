@@ -5,6 +5,7 @@ const lookupForm = document.querySelector('#crosswordForm')
 const results = document.querySelector("#results")
 const length = document.querySelector('#length')
 const inputs = document.querySelector('#inputs')
+const debug = document.querySelector("#debug")
 
 const maxLength = 16
 
@@ -56,13 +57,14 @@ function bindEventToInput() {
   text_inputs.forEach( input => {
     input.addEventListener('keyup', e => {
       const event = window.event ? window.event : e
+      debug.innerText = event.code
       if( e.target.nextElementSibling && 
           event.keyCode != 39 &&
           event.keyCode != 37 &&
           event.keyCode != 8 &&
           event.keyCode != 46 &&
-          event.code != 'KeyBackspace' &&
-          event.code != 'KeyDelete'
+          event.code != 'Backspace' &&
+          event.code != 'Delete'
 
           )
         e.target.nextElementSibling.focus()
