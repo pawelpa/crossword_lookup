@@ -54,7 +54,7 @@ function bindEventToInput() {
   })
 
   text_inputs.forEach( input => {
-    input.addEventListener('keydown', e => {
+    input.addEventListener('keyup', e => {
       const event = window.event ? window.event : e
       if( e.target.nextElementSibling && 
           event.keyCode != 39 &&
