@@ -56,13 +56,14 @@ function bindEventToInput() {
   text_inputs.forEach( input => {
     input.addEventListener('keyup', e => {
       const event = window.event ? window.event : e
-      if( e.target.nextElementSibling && 
-          
-          event.code >= 'KeyA' &&
-          ((event.code <= 'KeyZ') || (event.code === 'KeyZ' && event.altKey))
-
-          )
-        e.target.nextElementSibling.focus()
+      if( e.target.nextElementSibling && event.key.match(/[a-zA-Z]/) &&
+       !event.key.match(/Backspace/) &&
+       !event.key.match(/ArrowLeft/) &&
+       !event.key.match(/ArrowRight/) &&
+       !event.key.match(/Delete/)  
+      ) {
+            e.target.nextElementSibling.focus()
+      }
     })
     
   })
