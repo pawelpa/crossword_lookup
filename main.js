@@ -53,16 +53,26 @@ function bindEventToInput() {
     })
   })
 
+  const isAndroid = /android/i.test(navigator.userAgent.toLowerCase())
+
   text_inputs.forEach( input => {
     input.addEventListener('keyup', e => {
       const event = window.event ? window.event : e
-      if( e.target.nextElementSibling && event.key.match(/[a-zA-Z]/) &&
+      if( e.target.nextElementSibling && 
+        event.key.match(/[a-zA-Z]/) &&
        !event.key.match(/Backspace/) &&
        !event.key.match(/ArrowLeft/) &&
        !event.key.match(/ArrowRight/) &&
-       !event.key.match(/Delete/)  
+       !event.key.match(/Delete/)
       ) {
-            e.target.nextElementSibling.focus()
+        e.target.nextElementSibling.focus()
+      }
+      if( isAndroid &&  e.target.nextElementSibling) {
+        e.target.focus()
+        const sel = e.target.setSelectionRange(0,1)
+        const val = e.target.value.substring(sel,1)
+        if(val !== '')
+          e.target.nextElementSibling.focus()
       }
     })
     
